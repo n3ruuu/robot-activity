@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on darwin)" generated="2025-09-23T15:51:59.210465" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/Users/neru/robot-training/tests/test.robot">
+<kw name="Launch Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-23T15:51:59.283859" level="INFO">Opening browser 'chrome' to base url 'https://marmelab.com/react-admin-demo/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-23T15:51:59.283738" elapsed="1.464670"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-23T15:52:10.752592" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-23T15:52:00.749829" elapsed="10.003319"/>
+</kw>
+<status status="PASS" start="2025-09-23T15:51:59.283388" elapsed="11.470304"/>
+</kw>
+<test id="s1-t1" name="TEST-000002" line="18">
+<kw name="Get Random Users" owner="CustomLibrary">
+<msg time="2025-09-23T15:52:11.211923" level="INFO">[{'id': 1, 'name': 'Leanne Graham', 'username': 'Bret', 'email': 'Sincere@april.biz', 'address': {'street': 'Kulas Light', 'suite': 'Apt. 556', 'city': 'Gwenborough', 'zipcode': '92998-3874', 'geo': {'lat': '-37.3159', 'lng': '81.1496'}}, 'phone': '1-770-736-8031 x56442', 'website': 'hildegard.org', 'company': {'name': 'Romaguera-Crona', 'catchPhrase': 'Multi-layered client-server neural-net', 'bs': 'harness real-time e-markets'}, 'birthday': '7152001', 'password': 'PWJ%3Yfo', 'stateAbbr': 'KAG'}, {'id': 2, 'name': 'Ervin Howell', 'username': 'Antonette', 'email': 'Shanna@melissa.tv', 'address': {'street': 'Victor Plains', 'suite': 'Suite 879', 'city': 'Wisokyburgh', 'zipcode': '90566-7771', 'geo': {'lat': '-43.9509', 'lng': '-34.4618'}}, 'phone': '010-692-6593 x09125', 'website': 'anastasia.net', 'company': {'name': 'Deckow-Crist', 'catchPhrase': 'Proactive didactic contingency', 'bs': 'synergize scalable supply-chains'}, 'birthday': '4201999', 'password': '%xTYWIMQ', 'stateAbbr': 'VSW'}, {'id': 3, 'name': 'Clementine Bauch', 'username': 'Samantha', 'email': 'Nathan@yesenia.net', 'address': {'street': 'Douglas Extension', 'suite': 'Suite 847', 'city': 'McKenziehaven', 'zipcode': '59590-4157', 'geo': {'lat': '-68.6102', 'lng': '-47.0653'}}, 'phone': '1-463-123-4447', 'website': 'ramiro.info', 'company': {'name': 'Romaguera-Jacobson', 'catchPhrase': 'Face to face bifurcated interface', 'bs': 'e-enable strategic applications'}, 'birthday': '1242002', 'password': 'cmZQBv%Q', 'stateAbbr': 'DSM'}, {'id': 4, 'name': 'Patricia Lebsack', 'username': 'Karianne', 'email': 'Julianne.OConner@kory.org', 'address': {'street': 'Hoeger Mall', 'suite': 'Apt. 692', 'city': 'South Elvis', 'zipcode': '53919-4257', 'geo': {'lat': '29.4572', 'lng': '-164.2990'}}, 'phone': '493-170-9623 x156', 'website': 'kale.biz', 'company': {'name': 'Robel-Corkery', 'catchPhrase': 'Multi-tiered zero tolerance productivity', 'bs': 'transition cutting-edge web services'}, 'birthday': '4192004', 'password': 'CvxxpaCr', 'stateAbbr': 'HAS'}, {'id': 5, 'name': 'Chelsey Dietrich', 'username': 'Kamren', 'email': 'Lucio_Hettinger@annie.ca', 'address': {'street': 'Skiles Walks', 'suite': 'Suite 351', 'city': 'Roscoeview', 'zipcode': '33263', 'geo': {'lat': '-31.8129', 'lng': '62.5342'}}, 'phone': '(254)954-1289', 'website': 'demarco.info', 'company': {'name': 'Keebler LLC', 'catchPhrase': 'User-centric fault-tolerant solution', 'bs': 'revolutionize end-to-end systems'}, 'birthday': '4272000', 'password': '74NHqw6W', 'stateAbbr': 'SSR'}, {'id': 6, 'name': 'Mrs. Dennis Schulist', 'username': 'Leopoldo_Corkery', 'email': 'Karley_Dach@jasper.info', 'address': {'street': 'Norberto Crossing', 'suite': 'Apt. 950', 'city': 'South Christy', 'zipcode': '23505-1337', 'geo': {'lat': '-71.4197', 'lng': '71.7478'}}, 'phone': '1-477-935-8478 x6430', 'website': 'ola.org', 'company': {'name': 'Considine-Lockman', 'catchPhrase': 'Synchronised bottom-line interface', 'bs': 'e-enable innovative applications'}, 'birthday': '2232001', 'password': 'FNdHFUmJ', 'stateAbbr': 'NAS'}, {'id': 7, 'name': 'Kurtis Weissnat', 'username': 'Elwyn.Skiles', 'email': 'Telly.Hoeger@billy.biz', 'address': {'street': 'Rex Trail', 'suite': 'Suite 280', 'city': 'Howemouth', 'zipcode': '58804-1099', 'geo': {'lat': '24.8918', 'lng': '21.8984'}}, 'phone': '210.067.6132', 'website': 'elvis.io', 'company': {'name': 'Johns Group', 'catchPhrase': 'Configurable multimedia task-force', 'bs': 'generate enterprise e-tailers'}, 'birthday': '8131999', 'password': 'XP2e4v0o', 'stateAbbr': 'RSH'}, {'id': 8, 'name': 'Nicholas Runolfsdottir V', 'username': 'Maxime_Nienow', 'email': 'Sherwood@rosamond.me', 'address': {'street': 'Ellsworth Summit', 'suite': 'Suite 729', 'city': 'Aliyaview', 'zipcode': '45169', 'geo': {'lat': '-14.3990', 'lng': '-120.7677'}}, 'phone': '586.493.6943 x140', 'website': 'jacynthe.com', 'company': {'name': 'Abernathy Group', 'catchPhrase': 'Implemented secondary concept', 'bs': 'e-enable extensible e-tailers'}, 'birthday': '252000', 'password': 'MvZtcGto', 'stateAbbr': 'ESA'}, {'id': 9, 'name': 'Glenna Reichert', 'username': 'Delphine', 'email': 'Chaim_McDermott@dana.io', 'address': {'street': 'Dayna Park', 'suite': 'Suite 449', 'city': 'Bartholomebury', 'zipcode': '76495-3109', 'geo': {'lat': '24.6463', 'lng': '-168.8889'}}, 'phone': '(775)976-6794 x41206', 'website': 'conrad.com', 'company': {'name': 'Yost and Sons', 'catchPhrase': 'Switchable contextually-based project', 'bs': 'aggregate real-time technologies'}, 'birthday': '1262002', 'password': 'iTwi0HVW', 'stateAbbr': 'DSB'}, {'id': 10, 'name': 'Clementina DuBuque', 'username': 'Moriah.Stanton', 'email': 'Rey.Padberg@karina.biz', 'address': {'street': 'Kattie Turnpike', 'suite': 'Suite 198', 'city': 'Lebsackbury', 'zipcode': '31428-2261', 'geo': {'lat': '-38.2386', 'lng': '57.2232'}}, 'phone': '024-648-3804', 'website': 'ambrose.net', 'company': {'name': 'Hoeger LLC', 'catchPhrase': 'Centralized empowering task-force', 'bs': 'target end-to-end models'}, 'birthday': '9211999', 'password': 'IkvqObpM', 'stateAbbr': 'KSL'}]</msg>
+<msg time="2025-09-23T15:52:11.212036" level="INFO">/opt/homebrew/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-23T15:52:11.212236" level="INFO">${users} = [{'id': 1, 'name': 'Leanne Graham', 'username': 'Bret', 'email': 'Sincere@april.biz', 'address': {'street': 'Kulas Light', 'suite': 'Apt. 556', 'city': 'Gwenborough', 'zipcode': '92998-3874', 'geo': {...</msg>
+<var>${users}</var>
+<status status="PASS" start="2025-09-23T15:52:10.755826" elapsed="0.456436"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.212751" elapsed="0.000569"/>
+</kw>
+<var name="${user}">{'id': 1, 'name': 'Leanne Graham', 'username': 'Bret', 'email': 'Sincere@april.biz', 'address': {'street': 'Kulas Light', 'suite': 'Apt. 556', 'city': 'Gwenborough', 'zipcode': '92998-3874', 'geo': {'...</var>
+<status status="PASS" start="2025-09-23T15:52:11.212629" elapsed="0.000736"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.213529" elapsed="0.000447"/>
+</kw>
+<var name="${user}">{'id': 2, 'name': 'Ervin Howell', 'username': 'Antonette', 'email': 'Shanna@melissa.tv', 'address': {'street': 'Victor Plains', 'suite': 'Suite 879', 'city': 'Wisokyburgh', 'zipcode': '90566-7771', 'g...</var>
+<status status="PASS" start="2025-09-23T15:52:11.213459" elapsed="0.000555"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.214157" elapsed="0.000517"/>
+</kw>
+<var name="${user}">{'id': 3, 'name': 'Clementine Bauch', 'username': 'Samantha', 'email': 'Nathan@yesenia.net', 'address': {'street': 'Douglas Extension', 'suite': 'Suite 847', 'city': 'McKenziehaven', 'zipcode': '59590...</var>
+<status status="PASS" start="2025-09-23T15:52:11.214093" elapsed="0.000616"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.214840" elapsed="0.000371"/>
+</kw>
+<var name="${user}">{'id': 4, 'name': 'Patricia Lebsack', 'username': 'Karianne', 'email': 'Julianne.OConner@kory.org', 'address': {'street': 'Hoeger Mall', 'suite': 'Apt. 692', 'city': 'South Elvis', 'zipcode': '53919-4...</var>
+<status status="PASS" start="2025-09-23T15:52:11.214781" elapsed="0.000463"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.215368" elapsed="0.000365"/>
+</kw>
+<var name="${user}">{'id': 5, 'name': 'Chelsey Dietrich', 'username': 'Kamren', 'email': 'Lucio_Hettinger@annie.ca', 'address': {'street': 'Skiles Walks', 'suite': 'Suite 351', 'city': 'Roscoeview', 'zipcode': '33263', '...</var>
+<status status="PASS" start="2025-09-23T15:52:11.215314" elapsed="0.000451"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.215886" elapsed="0.000340"/>
+</kw>
+<var name="${user}">{'id': 6, 'name': 'Mrs. Dennis Schulist', 'username': 'Leopoldo_Corkery', 'email': 'Karley_Dach@jasper.info', 'address': {'street': 'Norberto Crossing', 'suite': 'Apt. 950', 'city': 'South Christy', '...</var>
+<status status="PASS" start="2025-09-23T15:52:11.215832" elapsed="0.000422"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.216365" elapsed="0.000319"/>
+</kw>
+<var name="${user}">{'id': 7, 'name': 'Kurtis Weissnat', 'username': 'Elwyn.Skiles', 'email': 'Telly.Hoeger@billy.biz', 'address': {'street': 'Rex Trail', 'suite': 'Suite 280', 'city': 'Howemouth', 'zipcode': '58804-1099...</var>
+<status status="PASS" start="2025-09-23T15:52:11.216319" elapsed="0.000394"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.216819" elapsed="0.000324"/>
+</kw>
+<var name="${user}">{'id': 8, 'name': 'Nicholas Runolfsdottir V', 'username': 'Maxime_Nienow', 'email': 'Sherwood@rosamond.me', 'address': {'street': 'Ellsworth Summit', 'suite': 'Suite 729', 'city': 'Aliyaview', 'zipcod...</var>
+<status status="PASS" start="2025-09-23T15:52:11.216772" elapsed="0.000399"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.217278" elapsed="0.000321"/>
+</kw>
+<var name="${user}">{'id': 9, 'name': 'Glenna Reichert', 'username': 'Delphine', 'email': 'Chaim_McDermott@dana.io', 'address': {'street': 'Dayna Park', 'suite': 'Suite 449', 'city': 'Bartholomebury', 'zipcode': '76495-3...</var>
+<status status="PASS" start="2025-09-23T15:52:11.217231" elapsed="0.000396"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.217733" elapsed="0.000323"/>
+</kw>
+<var name="${user}">{'id': 10, 'name': 'Clementina DuBuque', 'username': 'Moriah.Stanton', 'email': 'Rey.Padberg@karina.biz', 'address': {'street': 'Kattie Turnpike', 'suite': 'Suite 198', 'city': 'Lebsackbury', 'zipcode...</var>
+<status status="PASS" start="2025-09-23T15:52:11.217687" elapsed="0.000398"/>
+</iter>
+<var>${user}</var>
+<value>@{users}</value>
+<status status="PASS" start="2025-09-23T15:52:11.212426" elapsed="0.005687"/>
+</for>
+<doc>Fetch random users and log their names</doc>
+<status status="PASS" start="2025-09-23T15:52:10.754109" elapsed="0.464121"/>
+</test>
+<test id="s1-t2" name="TEST-000003" line="25">
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.218700" elapsed="0.000087"/>
+</kw>
+<var name="${i}">VAL1</var>
+<status status="PASS" start="2025-09-23T15:52:11.218649" elapsed="0.000166"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.218941" elapsed="0.000153"/>
+</kw>
+<var name="${i}">VAL2</var>
+<status status="PASS" start="2025-09-23T15:52:11.218868" elapsed="0.000266"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.219265" elapsed="0.000101"/>
+</kw>
+<var name="${i}">VAL3</var>
+<status status="PASS" start="2025-09-23T15:52:11.219204" elapsed="0.000192"/>
+</iter>
+<var>${i}</var>
+<value>@{LIST_1}</value>
+<status status="PASS" start="2025-09-23T15:52:11.218561" elapsed="0.000864"/>
+</for>
+<doc>Example of for loop on a list</doc>
+<status status="PASS" start="2025-09-23T15:52:11.218385" elapsed="0.001135"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-23T15:52:11.219856" elapsed="0.081225"/>
+</kw>
+<status status="PASS" start="2025-09-23T15:51:59.211357" elapsed="12.089783"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test" id="s1" pass="2" fail="0" skip="0">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

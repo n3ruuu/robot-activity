@@ -1,0 +1,3429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.7 on darwin)" generated="2025-09-24T22:04:57.965816" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/Users/neru/robot-training/tests/test.robot">
+<kw name="Launch Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:04:58.073718" level="INFO">Opening browser 'chrome' to base url 'https://marmelab.com/react-admin-demo/'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-24T22:04:58.073558" elapsed="1.542876"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_to_wait}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-24T22:04:59.621667" elapsed="0.867910"/>
+</kw>
+<arg>5x</arg>
+<arg>.5s</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${element_to_wait}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2025-09-24T22:04:59.620329" elapsed="0.869412"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2025-09-24T22:04:58.073088" elapsed="2.416752"/>
+</kw>
+<test id="s1-t1" name="TEST-000004" line="34">
+<kw name="Login User">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:00.491050" level="INFO">Typing text 'demo' into text field '//input[@name="username"]'.</msg>
+<arg>${login_txt_username}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:00.490819" elapsed="0.095469"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:00.586666" level="INFO">Typing text 'demo' into text field '//input[@name="password"]'.</msg>
+<arg>${login_txt_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:00.586458" elapsed="0.034132"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:00.621095" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<arg>${login_btn_submit}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:00.620790" elapsed="0.044701"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.108287" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-78.png"&gt;&lt;img src="selenium-screenshot-78.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-24T22:05:03.108471" level="FAIL">Element '//h6[text()="Dashboard"]' not visible after 2 seconds.</msg>
+<arg>${dashboard_hdr}</arg>
+<arg>timeout=2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-09-24T22:05:00.665863" elapsed="2.444608">Element '//h6[text()="Dashboard"]' not visible after 2 seconds.</status>
+</kw>
+<msg time="2025-09-24T22:05:03.110605" level="INFO">${status} = False</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${dashboard_hdr}</arg>
+<arg>timeout=2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-09-24T22:05:00.665683" elapsed="2.444963"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login successful</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.110865" elapsed="0.000271"/>
+</kw>
+<status status="NOT RUN" start="2025-09-24T22:05:03.110731" elapsed="0.000450"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login failed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.111291" elapsed="0.000132"/>
+</kw>
+<status status="PASS" start="2025-09-24T22:05:03.111223" elapsed="0.000244"/>
+</branch>
+<status status="PASS" start="2025-09-24T22:05:03.110710" elapsed="0.000793"/>
+</if>
+<status status="PASS" start="2025-09-24T22:05:00.490502" elapsed="2.621036"/>
+</kw>
+<kw name="Go To Customers Page" owner="CustomerPage">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.112045" level="INFO">Clicking element '(//p[text()="Customers"])[2]'.</msg>
+<arg>${nav_btn_customers}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.111907" elapsed="0.034909"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//table//tbody//tr</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.146992" elapsed="0.446785"/>
+</kw>
+<status status="PASS" start="2025-09-24T22:05:03.111715" elapsed="0.482187"/>
+</kw>
+<kw name="Log All Users From Table" owner="CustomerPage">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.598597" level="INFO">${row_count} = 25</msg>
+<var>${row_count}</var>
+<arg>//table//tbody//tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.594481" elapsed="0.004204"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.599387" elapsed="0.000146"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.612506" level="INFO">${name} = Peter Willms</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.599618" elapsed="0.012994"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.623074" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.612743" elapsed="0.010425"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.631195" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.623285" elapsed="0.007991"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.640653" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.631373" elapsed="0.009377"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.649419" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.640855" elapsed="0.008643"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.657203" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.649592" elapsed="0.007692"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.661954" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.657373" elapsed="0.004648"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.662264" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.662149" elapsed="0.000160"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.662554" elapsed="0.000040"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.662663" elapsed="0.000039"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:03.662477" elapsed="0.000260"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:03.662366" elapsed="0.000414"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.663001" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.662855" elapsed="0.000187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.663103" elapsed="0.000124"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.663290" elapsed="0.000161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.663550" elapsed="0.000200"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.663824" elapsed="0.000181"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.664074" elapsed="0.000102"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.664273" elapsed="0.000138"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.664507" elapsed="0.000138"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-09-24T22:05:03.599283" elapsed="0.065407"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.664894" elapsed="0.000130"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.674608" level="INFO">${name} = Marty Lesch</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.665108" elapsed="0.009590"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.688975" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.674799" elapsed="0.014271"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.697548" level="INFO">${orders} = 2</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.689181" elapsed="0.008449"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.728801" level="INFO">${total_spent} = $117.68</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.697726" elapsed="0.031188"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.741545" level="INFO">${latest_purchase} = 9/24/2025, 7:13:15 PM</msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.729048" elapsed="0.012602"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.748707" level="INFO">${has_newsletter} = No</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.741772" elapsed="0.007014"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.753785" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.114")&gt; | &lt;selenium.webd...</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.748882" elapsed="0.004981"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.754043" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.753948" elapsed="0.000133"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.757909" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.754300" elapsed="0.003678"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.758060" elapsed="0.000352"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.114")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:03.754231" elapsed="0.004223"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.762039" level="INFO">${text} = Reviewer</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.758595" elapsed="0.003506"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.762175" elapsed="0.000333"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.115")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:03.758529" elapsed="0.004023"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:03.754131" elapsed="0.008466"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.763093" level="INFO">${segments_clean} = Regular, Reviewer</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.762804" elapsed="0.000347"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.763268" elapsed="0.000164"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.763612" elapsed="0.000198"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.763924" elapsed="0.000155"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.764172" elapsed="0.000096"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.764346" elapsed="0.000090"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.764511" elapsed="0.000084"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.764668" elapsed="0.000085"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2025-09-24T22:05:03.664820" elapsed="0.099984"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.764976" elapsed="0.000093"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.773909" level="INFO">${name} = Lilian Schmitt</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.765152" elapsed="0.008835"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.781657" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.774074" elapsed="0.007647"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.789795" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.781800" elapsed="0.008078"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.797396" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.789975" elapsed="0.007490"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.805029" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.797550" elapsed="0.007550"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.811574" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.805186" elapsed="0.006452"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.816264" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.811718" elapsed="0.004608"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.816487" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.816401" elapsed="0.000123"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.816726" elapsed="0.000048"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.816834" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:03.816663" elapsed="0.000236"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:03.816572" elapsed="0.000364"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.817134" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.817001" elapsed="0.000170"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.817232" elapsed="0.000192"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.817529" elapsed="0.000163"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.817758" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.817963" elapsed="0.000121"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.818151" elapsed="0.000080"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.818301" elapsed="0.000166"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.818556" elapsed="0.000209"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2025-09-24T22:05:03.764916" elapsed="0.053909"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.819088" elapsed="0.000114"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.848504" level="INFO">${name} = Rashawn Larson</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.819273" elapsed="0.029407"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.861723" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.848840" elapsed="0.012970"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.869722" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.861917" elapsed="0.007878"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.877692" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.869897" elapsed="0.007865"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.885227" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.877847" elapsed="0.007455"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.891809" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.885409" elapsed="0.006471"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.896460" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.128")&gt; ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.891968" elapsed="0.004573"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.896744" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.896632" elapsed="0.000156"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.900314" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.897004" elapsed="0.003368"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.900455" elapsed="0.000360"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.128")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:03.896938" elapsed="0.003921"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:03.896840" elapsed="0.004064"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.901099" level="INFO">${segments_clean} = Regular</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.900978" elapsed="0.000162"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.901203" elapsed="0.000128"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.901395" elapsed="0.000092"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.901549" elapsed="0.000158"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.901883" elapsed="0.000339"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.902308" elapsed="0.000131"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.902534" elapsed="0.000131"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.902751" elapsed="0.000141"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2025-09-24T22:05:03.818972" elapsed="0.083979"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.903149" elapsed="0.000100"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.912807" level="INFO">${name} = Anastasia Johnston</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.903331" elapsed="0.009552"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.920995" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.912972" elapsed="0.008096"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.928638" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.921158" elapsed="0.007546"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.936501" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.928784" elapsed="0.007787"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.944332" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.936654" elapsed="0.007742"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.950860" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.944479" elapsed="0.006442"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.955678" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.951113" elapsed="0.004624"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.955899" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.955812" elapsed="0.000124"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.956134" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:03.956228" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:03.956072" elapsed="0.000228"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:03.955984" elapsed="0.000355"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:03.956541" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.956404" elapsed="0.000176"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.956641" elapsed="0.000208"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.956964" elapsed="0.000251"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.957340" elapsed="0.000219"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.957704" elapsed="0.000151"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.957940" elapsed="0.000093"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.958111" elapsed="0.000085"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.958270" elapsed="0.000088"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2025-09-24T22:05:03.903072" elapsed="0.055335"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.958579" elapsed="0.000098"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.967681" level="INFO">${name} = Bernadette Koch</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.958761" elapsed="0.008994"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.976287" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.967839" elapsed="0.008516"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.984157" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.976439" elapsed="0.007784"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.992165" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.984314" elapsed="0.007921"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:03.999773" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.992317" elapsed="0.007518"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.006559" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:03.999915" elapsed="0.006709"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.010904" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.006706" elapsed="0.004268"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.011140" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.011052" elapsed="0.000125"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.011380" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.011476" elapsed="0.000031"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.011317" elapsed="0.000224"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.011227" elapsed="0.000350"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.011774" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.011642" elapsed="0.000169"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.011873" elapsed="0.000187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.012166" elapsed="0.000397"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.012699" elapsed="0.000227"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.013033" elapsed="0.000430"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.013687" elapsed="0.000166"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.013942" elapsed="0.000137"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.014165" elapsed="0.000097"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2025-09-24T22:05:03.958519" elapsed="0.055797"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.014491" elapsed="0.000100"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.023747" level="INFO">${name} = Madaline Crona</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.014669" elapsed="0.009174"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.031600" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.023935" elapsed="0.007733"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.039644" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.031753" elapsed="0.007970"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.047454" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.039815" elapsed="0.007708"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.055153" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.047605" elapsed="0.007618"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.061785" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.055307" elapsed="0.006540"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.066209" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.061927" elapsed="0.004340"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.066430" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.066344" elapsed="0.000123"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.066666" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.066761" elapsed="0.000031"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.066604" elapsed="0.000221"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.066515" elapsed="0.000346"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.067056" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.066925" elapsed="0.000168"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.067155" elapsed="0.000144"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.067413" elapsed="0.000148"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.067643" elapsed="0.000087"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.067802" elapsed="0.000081"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.067955" elapsed="0.000079"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.068105" elapsed="0.000080"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.068254" elapsed="0.000118"/>
+</kw>
+<var name="${i}">7</var>
+<status status="PASS" start="2025-09-24T22:05:04.014429" elapsed="0.053991"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.068628" elapsed="0.000127"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.078098" level="INFO">${name} = Lillie Kautzer</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.068835" elapsed="0.009337"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.086229" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.078256" elapsed="0.008041"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.094420" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.086393" elapsed="0.008093"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.103001" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.094565" elapsed="0.008510"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.111209" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.103220" elapsed="0.008058"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.118297" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.111364" elapsed="0.007006"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.123032" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.118471" elapsed="0.004621"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.123258" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.123170" elapsed="0.000124"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.123497" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.123593" elapsed="0.000031"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.123434" elapsed="0.000224"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.123343" elapsed="0.000352"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.123898" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.123762" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.124004" elapsed="0.000174"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.124245" elapsed="0.000157"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.124538" elapsed="0.000195"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.124841" elapsed="0.000118"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.125040" elapsed="0.000093"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.125211" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.125385" elapsed="0.000093"/>
+</kw>
+<var name="${i}">8</var>
+<status status="PASS" start="2025-09-24T22:05:04.068548" elapsed="0.056979"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.125700" elapsed="0.000097"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.163479" level="INFO">${name} = Connie Zboncak</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.125876" elapsed="0.037847"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.174921" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.164086" elapsed="0.010930"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.183516" level="INFO">${orders} = 4</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.175128" elapsed="0.008471"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.192370" level="INFO">${total_spent} = $549.55</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.183696" elapsed="0.008755"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.200212" level="INFO">${latest_purchase} = 9/22/2025, 4:46:29 PM</msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.192545" elapsed="0.007739"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.207333" level="INFO">${has_newsletter} = No</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.200373" elapsed="0.007028"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.211885" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.159")&gt; ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.207486" elapsed="0.004465"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.212118" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.212030" elapsed="0.000126"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.215793" level="INFO">${text} = Reviewer</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.212365" elapsed="0.003501"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.215950" elapsed="0.000389"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.159")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.212300" elapsed="0.004085"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:04.212205" elapsed="0.004270"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.216726" level="INFO">${segments_clean} = Reviewer</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.216577" elapsed="0.000193"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.216836" elapsed="0.000115"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.217028" elapsed="0.000102"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.217230" elapsed="0.000120"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.217433" elapsed="0.000095"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.217602" elapsed="0.000086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.217763" elapsed="0.000082"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.217918" elapsed="0.000088"/>
+</kw>
+<var name="${i}">9</var>
+<status status="PASS" start="2025-09-24T22:05:04.125638" elapsed="0.092418"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.218250" elapsed="0.000134"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.227277" level="INFO">${name} = A
+Abigail Langworth</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.218455" elapsed="0.008894"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.235249" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.227432" elapsed="0.007885"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.243436" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.235414" elapsed="0.008090"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.251562" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.243600" elapsed="0.008032"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.259209" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.251783" elapsed="0.007493"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.265781" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.259359" elapsed="0.006487"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.270742" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.166")&gt; ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.265924" elapsed="0.004892"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.270989" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.270896" elapsed="0.000131"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.274606" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.271242" elapsed="0.003428"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.274745" elapsed="0.000334"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.166")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.271174" elapsed="0.003946"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:04.271076" elapsed="0.004088"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.275359" level="INFO">${segments_clean} = Regular</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.275239" elapsed="0.000157"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.275458" elapsed="0.000144"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.275721" elapsed="0.000131"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.275938" elapsed="0.000090"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.276106" elapsed="0.000085"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.276263" elapsed="0.000083"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.276417" elapsed="0.000081"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.276574" elapsed="0.000084"/>
+</kw>
+<var name="${i}">10</var>
+<status status="PASS" start="2025-09-24T22:05:04.218178" elapsed="0.058636"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.277092" elapsed="0.000248"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.311091" level="INFO">${name} = G
+Geovany Weber</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.277449" elapsed="0.033744"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.319617" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.311311" elapsed="0.008388"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.327496" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.319798" elapsed="0.007766"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.335334" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.327651" elapsed="0.007759"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.342910" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.335523" elapsed="0.007452"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.349852" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.343060" elapsed="0.006855"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.354658" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.349999" elapsed="0.004722"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.354893" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.354802" elapsed="0.000129"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.355134" elapsed="0.000037"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.355230" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.355071" elapsed="0.000224"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.354980" elapsed="0.000351"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.355534" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.355397" elapsed="0.000175"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.355634" elapsed="0.000175"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.355908" elapsed="0.000323"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.356347" elapsed="0.000615"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.357162" elapsed="0.000278"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.357615" elapsed="0.000174"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.357910" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.358159" elapsed="0.000102"/>
+</kw>
+<var name="${i}">11</var>
+<status status="PASS" start="2025-09-24T22:05:04.276970" elapsed="0.081337"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.358479" elapsed="0.000100"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.367085" level="INFO">${name} = I
+Idella Cruickshank</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.358656" elapsed="0.008499"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.375180" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.367238" elapsed="0.008014"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.382878" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.375334" elapsed="0.007609"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.390962" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.383019" elapsed="0.008009"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.398578" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.391111" elapsed="0.007530"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.405117" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.398721" elapsed="0.006457"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.409907" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.405362" elapsed="0.004604"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.410131" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.410043" elapsed="0.000127"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.410373" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.410468" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.410309" elapsed="0.000224"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.410219" elapsed="0.000352"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.410775" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.410643" elapsed="0.000169"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.410875" elapsed="0.000230"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.411255" elapsed="0.000544"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.411895" elapsed="0.002177"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.414306" elapsed="0.000243"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.414716" elapsed="0.000202"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.415067" elapsed="0.000191"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.415402" elapsed="0.001624"/>
+</kw>
+<var name="${i}">12</var>
+<status status="PASS" start="2025-09-24T22:05:04.358416" elapsed="0.058680"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.417336" elapsed="0.000126"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.440630" level="INFO">${name} = T
+Turner O'Connell</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.417542" elapsed="0.023299"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.451499" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.440991" elapsed="0.010596"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.460221" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.451738" elapsed="0.008555"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.468097" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.460387" elapsed="0.007779"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.475951" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.468252" elapsed="0.007762"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.482578" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.476105" elapsed="0.006535"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.487352" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.482722" elapsed="0.004696"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.487590" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.487498" elapsed="0.000130"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.487840" elapsed="0.000042"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.487946" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.487772" elapsed="0.000241"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.487679" elapsed="0.000373"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.488253" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.488119" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.488355" elapsed="0.000239"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.488677" elapsed="0.000259"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.489160" elapsed="0.000245"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.489628" elapsed="0.000239"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.489979" elapsed="0.000140"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.490204" elapsed="0.000095"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.490374" elapsed="0.000096"/>
+</kw>
+<var name="${i}">13</var>
+<status status="PASS" start="2025-09-24T22:05:04.417246" elapsed="0.073274"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.490697" elapsed="0.000097"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.499883" level="INFO">${name} = Brennan D'Amore</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.490871" elapsed="0.009086"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.507981" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.500040" elapsed="0.008010"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.515570" level="INFO">${orders} = 4</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.508136" elapsed="0.007499"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.523663" level="INFO">${total_spent} = $858.31</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.515715" elapsed="0.008025"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.531357" level="INFO">${latest_purchase} = 9/24/2025, 12:47:15 AM</msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.523830" elapsed="0.007597"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.538047" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.531508" elapsed="0.006609"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.542705" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.191")&gt; | &lt;selenium.webd...</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.538203" elapsed="0.004571"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.542939" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.542853" elapsed="0.000123"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.546650" level="INFO">${text} = Collector</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.543182" elapsed="0.003531"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.546786" elapsed="0.000336"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.191")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.543116" elapsed="0.004047"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.550835" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.547302" elapsed="0.003597"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.550971" elapsed="0.000310"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.192")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.547237" elapsed="0.004084"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.554643" level="INFO">${text} = Reviewer</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.551455" elapsed="0.003248"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.554774" elapsed="0.000307"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.193")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.551390" elapsed="0.003732"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:04.543023" elapsed="0.012142"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.555367" level="INFO">${segments_clean} = Collector, Regular, Reviewer</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.555240" elapsed="0.000168"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.555469" elapsed="0.000138"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.555717" elapsed="0.000126"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.555920" elapsed="0.000091"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.556088" elapsed="0.000083"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.556338" elapsed="0.000265"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.556748" elapsed="0.000175"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.557009" elapsed="0.000096"/>
+</kw>
+<var name="${i}">14</var>
+<status status="PASS" start="2025-09-24T22:05:04.490636" elapsed="0.066519"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.557322" elapsed="0.000095"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.585666" level="INFO">${name} = King Upton</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.557495" elapsed="0.028284"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.598160" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.585910" elapsed="0.012335"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.606197" level="INFO">${orders} = 4</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.598355" elapsed="0.007914"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.613808" level="INFO">${total_spent} = $305.89</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.606361" elapsed="0.007514"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.622306" level="INFO">${latest_purchase} = 9/23/2025, 7:03:49 PM</msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.613961" elapsed="0.008435"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.629148" level="INFO">${has_newsletter} = No</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.622498" elapsed="0.006717"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.633800" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.200")&gt; | &lt;selenium.webd...</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.629302" elapsed="0.004564"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.634029" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.633943" elapsed="0.000122"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.638279" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.634278" elapsed="0.004072"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.638430" elapsed="0.000351"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.200")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.634211" elapsed="0.004619"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.642372" level="INFO">${text} = Reviewer</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.638973" elapsed="0.003463"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.642511" elapsed="0.000329"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.201")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.638906" elapsed="0.003977"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:04.634114" elapsed="0.008813"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.643127" level="INFO">${segments_clean} = Regular, Reviewer</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.643004" elapsed="0.000162"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.643229" elapsed="0.000139"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.643481" elapsed="0.000208"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.643789" elapsed="0.000343"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.644219" elapsed="0.000179"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.644502" elapsed="0.000145"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.644734" elapsed="0.000091"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.644902" elapsed="0.000090"/>
+</kw>
+<var name="${i}">15</var>
+<status status="PASS" start="2025-09-24T22:05:04.557260" elapsed="0.087783"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.645214" elapsed="0.000095"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.654781" level="INFO">${name} = H
+Hoyt Harvey</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.645503" elapsed="0.009366"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.663249" level="INFO">${last_seen} = 9/24/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.654986" elapsed="0.008335"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.670999" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.663409" elapsed="0.007660"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.678946" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.671157" elapsed="0.007852"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.686492" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.679089" elapsed="0.007478"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.699469" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.686658" elapsed="0.012891"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.704309" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.699643" elapsed="0.004732"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.704556" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.704462" elapsed="0.000133"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.704806" elapsed="0.000037"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.704904" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.704740" elapsed="0.000229"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.704645" elapsed="0.000361"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.705212" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.705076" elapsed="0.000175"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.705314" elapsed="0.000143"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.705580" elapsed="0.000130"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.705791" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.705968" elapsed="0.000092"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.706134" elapsed="0.000086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.706292" elapsed="0.000084"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.706451" elapsed="0.000085"/>
+</kw>
+<var name="${i}">16</var>
+<status status="PASS" start="2025-09-24T22:05:04.645153" elapsed="0.061432"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.706757" elapsed="0.000095"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.716004" level="INFO">${name} = T
+Theo Gibson</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.706928" elapsed="0.009147"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.725918" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.716161" elapsed="0.009835"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.753305" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.726112" elapsed="0.027307"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.765119" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.753554" elapsed="0.011647"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.773356" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.765308" elapsed="0.008120"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.780086" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.773522" elapsed="0.006631"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.784827" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.214")&gt; ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.780238" elapsed="0.004708"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.785146" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.785047" elapsed="0.000189"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.788996" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.785486" elapsed="0.003572"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.789138" elapsed="0.000346"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.214")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:04.785417" elapsed="0.004111"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:04.785299" elapsed="0.004273"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.789771" level="INFO">${segments_clean} = Regular</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.789650" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.789889" elapsed="0.000136"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.790138" elapsed="0.000126"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.790346" elapsed="0.000095"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.790521" elapsed="0.000089"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.790685" elapsed="0.000088"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.790856" elapsed="0.000087"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.791021" elapsed="0.000097"/>
+</kw>
+<var name="${i}">17</var>
+<status status="PASS" start="2025-09-24T22:05:04.706695" elapsed="0.084473"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.791340" elapsed="0.000094"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.800794" level="INFO">${name} = N
+Noemi Gleason</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.791516" elapsed="0.009354"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.809221" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.800958" elapsed="0.008332"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.817026" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.809375" elapsed="0.007718"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.825144" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.817175" elapsed="0.008036"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.832810" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.825290" elapsed="0.007585"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.839779" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.832957" elapsed="0.006889"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.844306" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.839930" elapsed="0.004435"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.844531" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.844445" elapsed="0.000123"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.844768" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.844864" elapsed="0.000031"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.844705" elapsed="0.000224"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.844617" elapsed="0.000348"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.845160" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.845030" elapsed="0.000167"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.845258" elapsed="0.000139"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.845510" elapsed="0.000162"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.845771" elapsed="0.000135"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.846084" elapsed="0.000134"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.846368" elapsed="0.000162"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.846626" elapsed="0.000233"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.846940" elapsed="0.000118"/>
+</kw>
+<var name="${i}">18</var>
+<status status="PASS" start="2025-09-24T22:05:04.791279" elapsed="0.055820"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.847276" elapsed="0.000101"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.904255" level="INFO">${name} = K
+Kailee Swaniawski</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.847454" elapsed="0.057015"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.913893" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.904717" elapsed="0.009276"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.923224" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.914116" elapsed="0.009216"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.933352" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.923453" elapsed="0.009982"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.941980" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.933533" elapsed="0.008520"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.949314" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.942141" elapsed="0.007242"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.954171" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.949471" elapsed="0.004766"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.954411" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.954319" elapsed="0.000130"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.954657" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:04.954764" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:04.954592" elapsed="0.000238"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:04.954498" elapsed="0.000369"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:04.955068" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.954935" elapsed="0.000171"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.955170" elapsed="0.000193"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.955429" elapsed="0.000396"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.955921" elapsed="0.000377"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.956528" elapsed="0.000297"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.956915" elapsed="0.000292"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.957309" elapsed="0.000181"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.957613" elapsed="0.000154"/>
+</kw>
+<var name="${i}">19</var>
+<status status="PASS" start="2025-09-24T22:05:04.847213" elapsed="0.110602"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.957997" elapsed="0.000321"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.967983" level="INFO">${name} = G
+Gideon Labadie</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.958395" elapsed="0.009664"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.976662" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.968144" elapsed="0.008595"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.985448" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.976830" elapsed="0.008697"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:04.994047" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.985632" elapsed="0.008530"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.002121" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:04.994279" elapsed="0.007913"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.009373" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.002284" elapsed="0.007159"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.014025" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.009527" elapsed="0.004561"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.014255" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.014166" elapsed="0.000127"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.014498" elapsed="0.000038"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.014599" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:05.014434" elapsed="0.000233"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:05.014342" elapsed="0.000362"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.014920" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.014772" elapsed="0.000198"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.015034" elapsed="0.000146"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.015296" elapsed="0.000236"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.015624" elapsed="0.000175"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.015977" elapsed="0.000179"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.016280" elapsed="0.000116"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.016483" elapsed="0.000093"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.016658" elapsed="0.000092"/>
+</kw>
+<var name="${i}">20</var>
+<status status="PASS" start="2025-09-24T22:05:04.957933" elapsed="0.058869"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.016977" elapsed="0.000099"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.026302" level="INFO">${name} = Felicia Spencer</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.017154" elapsed="0.009229"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.034548" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.026476" elapsed="0.008136"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.064174" level="INFO">${orders} = 1</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.034695" elapsed="0.029606"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.076196" level="INFO">${total_spent} = $148.74</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.064465" elapsed="0.011827"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.085173" level="INFO">${latest_purchase} = 9/13/2025, 10:38:42 PM</msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.076403" elapsed="0.008877"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.092220" level="INFO">${has_newsletter} = No</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.085398" elapsed="0.006891"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.097112" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.241")&gt; ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.092377" elapsed="0.004807"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.097360" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.097267" elapsed="0.000133"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.101587" level="INFO">${text} = Ordered once</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.097621" elapsed="0.004088"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.101817" elapsed="0.000434"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.241")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:05.097550" elapsed="0.004816"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:05.097450" elapsed="0.005018"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.102798" level="INFO">${segments_clean} = Ordered once</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.102586" elapsed="0.000259"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.102919" elapsed="0.000145"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.103166" elapsed="0.000174"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.103435" elapsed="0.000108"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.103662" elapsed="0.000120"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.103863" elapsed="0.000099"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.104040" elapsed="0.000092"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.104205" elapsed="0.000090"/>
+</kw>
+<var name="${i}">21</var>
+<status status="PASS" start="2025-09-24T22:05:05.016911" elapsed="0.087431"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.104518" elapsed="0.000100"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.114101" level="INFO">${name} = J
+Juliet Durgan</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.104697" elapsed="0.009510"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.122668" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.114306" elapsed="0.008432"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.131546" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.122831" elapsed="0.008808"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.140334" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.131762" elapsed="0.008650"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.148435" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.140508" elapsed="0.008000"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.155342" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.148597" elapsed="0.006813"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.159970" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.155494" elapsed="0.004535"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.160198" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.160107" elapsed="0.000128"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.160441" elapsed="0.000036"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.160538" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:05.160376" elapsed="0.000228"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:05.160284" elapsed="0.000357"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.160843" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.160709" elapsed="0.000172"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.160944" elapsed="0.000179"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.161236" elapsed="0.000211"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.161620" elapsed="0.000125"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.161824" elapsed="0.000111"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.162013" elapsed="0.000088"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.162173" elapsed="0.000088"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.162331" elapsed="0.000087"/>
+</kw>
+<var name="${i}">22</var>
+<status status="PASS" start="2025-09-24T22:05:05.104455" elapsed="0.058013"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.162656" elapsed="0.000167"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.193034" level="INFO">${name} = H
+Halle Welch</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.162907" elapsed="0.030247"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.206516" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.193285" elapsed="0.013330"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.215091" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.206733" elapsed="0.008435"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.223637" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.215266" elapsed="0.008441"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.231904" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.223803" elapsed="0.008176"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.239091" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.232081" elapsed="0.007095"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.244003" level="INFO">@{span_elements} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.254")&gt; ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.239276" elapsed="0.004797"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.244251" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.244157" elapsed="0.000132"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.248074" level="INFO">${text} = Regular</msg>
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.244510" elapsed="0.003633"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.248225" elapsed="0.000397"/>
+</kw>
+<var name="${span}">&lt;selenium.webdriver.remote.webelement.WebElement (session="a542e66afe469c288186ffac0ba870f3", element="f.8AC0664A669FA90E6AAC0939E702AB4F.d.B633FAAC5013AF67ACC03B36D7C3EC16.e.254")&gt;</var>
+<status status="PASS" start="2025-09-24T22:05:05.244438" elapsed="0.004239"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="PASS" start="2025-09-24T22:05:05.244338" elapsed="0.004386"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.248924" level="INFO">${segments_clean} = Regular</msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.248802" elapsed="0.000161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.249026" elapsed="0.000268"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.249501" elapsed="0.000512"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.250194" elapsed="0.000175"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.250472" elapsed="0.000116"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.250670" elapsed="0.000099"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.250852" elapsed="0.000092"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.251026" elapsed="0.000128"/>
+</kw>
+<var name="${i}">23</var>
+<status status="PASS" start="2025-09-24T22:05:05.162584" elapsed="0.088622"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.251419" elapsed="0.000117"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.260979" level="INFO">${name} = R
+Rebekah Yost</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.251610" elapsed="0.009450"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.269947" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.261152" elapsed="0.008903"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.278590" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.270177" elapsed="0.008484"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.287152" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.278753" elapsed="0.008495"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.296577" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.287363" elapsed="0.009303"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.303995" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.296774" elapsed="0.007293"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.308837" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.304165" elapsed="0.004741"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.309084" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.308991" elapsed="0.000134"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.309360" elapsed="0.000040"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.309462" elapsed="0.000037"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:05.309294" elapsed="0.000240"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:05.309179" elapsed="0.000393"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.309773" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.309639" elapsed="0.000172"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.309874" elapsed="0.000140"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.310129" elapsed="0.000137"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.310353" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.310530" elapsed="0.000092"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.310695" elapsed="0.000086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.310852" elapsed="0.000082"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.311008" elapsed="0.000085"/>
+</kw>
+<var name="${i}">24</var>
+<status status="PASS" start="2025-09-24T22:05:05.251352" elapsed="0.059790"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>====== User ${i} ======\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.311315" elapsed="0.000095"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.321772" level="INFO">${name} = M
+Maximillian Bergnaum</msg>
+<var>${name}</var>
+<arg>(//table//tbody//tr)[${i}]/td[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.311698" elapsed="0.010204"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.352450" level="INFO">${last_seen} = 9/23/2025</msg>
+<var>${last_seen}</var>
+<arg>(//table//tbody//tr)[${i}]/td[3]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.322045" elapsed="0.030516"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.369096" level="INFO">${orders} = 0</msg>
+<var>${orders}</var>
+<arg>(//table//tbody//tr)[${i}]/td[4]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.352694" elapsed="0.016505"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.378304" level="INFO">${total_spent} = $0.00</msg>
+<var>${total_spent}</var>
+<arg>(//table//tbody//tr)[${i}]/td[5]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.369331" elapsed="0.009056"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.386863" level="INFO">${latest_purchase} = </msg>
+<var>${latest_purchase}</var>
+<arg>(//table//tbody//tr)[${i}]/td[6]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.378489" elapsed="0.008454"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.394419" level="INFO">${has_newsletter} = Yes</msg>
+<var>${has_newsletter}</var>
+<arg>(//table//tbody//tr)[${i}]/td[7]//*[name()='svg']</arg>
+<arg>aria-label</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.387049" elapsed="0.007441"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-09-24T22:05:05.399200" level="INFO">@{span_elements} = [ ]</msg>
+<var>@{span_elements}</var>
+<arg>(//table//tbody//tr)[${i}]/td[8]//span</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.394582" elapsed="0.004687"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.399443" level="INFO">@{segments_list} = [ ]</msg>
+<var>@{segments_list}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.399352" elapsed="0.000129"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${text}</var>
+<arg>${span}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.399690" elapsed="0.000037"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${segments_list}</arg>
+<arg>${text.strip()}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-24T22:05:05.399789" elapsed="0.000032"/>
+</kw>
+<var name="${span}"/>
+<status status="NOT RUN" start="2025-09-24T22:05:05.399624" elapsed="0.000232"/>
+</iter>
+<var>${span}</var>
+<value>@{span_elements}</value>
+<status status="NOT RUN" start="2025-09-24T22:05:05.399530" elapsed="0.000363"/>
+</for>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-24T22:05:05.400096" level="INFO">${segments_clean} = </msg>
+<var>${segments_clean}</var>
+<arg>', '.join(${segments_list})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.399961" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.400198" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Last seen: ${last_seen}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.400468" elapsed="0.000169"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Orders: ${orders}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.400869" elapsed="0.000255"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Total spent: ${total_spent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.401331" elapsed="0.000133"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Latest purchase: ${latest_purchase}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.401549" elapsed="0.000138"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Has Newsletter: ${has_newsletter}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.401768" elapsed="0.000096"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Segments: ${segments_clean}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.401929" elapsed="0.000092"/>
+</kw>
+<var name="${i}">25</var>
+<status status="PASS" start="2025-09-24T22:05:05.311254" elapsed="0.090829"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${row_count + 1}</value>
+<status status="PASS" start="2025-09-24T22:05:03.598773" elapsed="1.803369"/>
+</for>
+<status status="PASS" start="2025-09-24T22:05:03.594238" elapsed="1.807985"/>
+</kw>
+<status status="PASS" start="2025-09-24T22:05:00.489944" elapsed="4.912724"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-09-24T22:05:05.403607" elapsed="0.080874"/>
+</kw>
+<status status="PASS" start="2025-09-24T22:04:57.967390" elapsed="7.517244"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test" id="s1" pass="1" fail="0" skip="0">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
