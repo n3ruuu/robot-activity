@@ -1,6 +1,10 @@
 *** Settings ***
 Library    ../Library/CustomLibrary.py
-Resource    ../Resources/CustomerPage.resource
+Resource    ../Resources/App.resource
+Resource    ../Resources/Task_1.resource
+Resource    ../Resources/Task_2.resource
+Resource    ../Resources/Task_3.resource
+Resource    ../Resources/Task_4.resource
 Resource    ../Resources/Task_5.resource
 Variables   ../Variables/variables.py
 
@@ -38,27 +42,8 @@ TEST-000004
     Log All Users From Table
 
 TEST-000005
-    Login User
+    # Login User
     Go To Customers Page
     ${total}    ${formatted_total}=    Calculate Total Spending
     Validate Total Spending    ${total}    ${formatted_total}
 
-*** Keywords ***
-Launch Browser
-    [Arguments]    ${url}    ${element_to_wait}=${login_txt_username}
-    Open Browser    ${url}    chrome    options=add_argument("--start-maximized")
-    Wait Until Keyword Succeeds    5x    .5s    Wait Until Element Is Visible    ${element_to_wait}
-
-Login User
-    [Arguments]    ${username}=${USERNAME}    ${password}=${PASSWORD}
-    Input Text    ${login_txt_username}    ${username}
-    Input Text    ${login_txt_password}    ${password}
-    Click Button    ${login_btn_submit}
-
-    ${status}     Run Keyword and Return Status    Wait Until Element Is Visible    ${dashboard_hdr}     timeout=2s
-
-    IF    ${status}
-        Log To Console   Login successful
-    ELSE
-        Log To Console    Login failed
-    END

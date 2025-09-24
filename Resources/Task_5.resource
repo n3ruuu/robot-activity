@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    String
-Library    Collections
+Variables    ../Variables/customer_variables.py
 
 *** Keywords ***
 Display Users With Spending
@@ -44,7 +44,7 @@ Calculate Total Spending
 Validate Total Spending
     [Arguments]    ${total}    ${formatted_total}
     ${threshold}=    Set Variable    3500.0
-    
+
     Log To Console    \t===================================\n
 
     IF    ${total} < ${threshold}
