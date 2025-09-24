@@ -1,6 +1,7 @@
 *** Settings ***
 Library    ../Library/CustomLibrary.py
 Resource    ../Resources/CustomerPage.resource
+Resource    ../Resources/Task_5.resource
 Variables   ../Variables/variables.py
 
 Suite Setup    Launch Browser    ${URL}
@@ -35,6 +36,12 @@ TEST-000004
     # Login User
     Go To Customers Page
     Log All Users From Table
+
+TEST-000005
+    Login User
+    Go To Customers Page
+    ${total}    ${formatted_total}=    Calculate Total Spending
+    Validate Total Spending    ${total}    ${formatted_total}
 
 *** Keywords ***
 Launch Browser

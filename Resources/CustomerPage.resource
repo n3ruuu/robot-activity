@@ -49,11 +49,34 @@ Verify User Is Added
 Verify User Is Updated
     [Arguments]    ${row_index}    ${user}
     Go To Customers Page
-    ${fetched_name}    Get Text    (//table//tbody//tr)[${row_index}]//td[2]
-    IF    "\\n" in """${fetched_name}"""
-        ${fetched_name}    Evaluate    """${fetched_name}""".replace("\\n","")[1:]
+    ${fetched_name}=    Get Text    (//table//tbody//tr)[${row_index}]//td[2]
+
+    # Remove newlines
+    ${fetched_name}=    Replace String    ${fetched_name}    \n    ${EMPTY}
+
+    # Define titles and suffixes to remove
+    ${titles_suffixes}=    Create List    mr.    mrs.    ms.    dr.    jr.    sr.    iii    iv    v
+
+    # Split the fetched name and remove any titles/suffixes
+    ${name_words}=    Split String    ${fetched_name}
+    @{filtered_words}=    Create List
+    FOR    ${word}    IN    @{name_words}
+        ${lower}=    Convert To Lowercase    ${word}
+        Run Keyword Unless    '${lower}' in @{titles_suffixes}    Append To List    ${filtered_words}    ${word}
     END
-    Should Be Equal As Strings    ${user["name"]}    ${fetched_name}
+    ${clean_fetched_name}=    Evaluate    " ".join(${filtered_words})
+
+    # Do the same for user input name
+    ${user_name_parts}=    Split String    ${user["name"]}
+    @{user_filtered}=    Create List
+    FOR    ${word}    IN    @{user_name_parts}
+        ${lower}=    Convert To Lowercase    ${word}
+        Run Keyword Unless    '${lower}' in @{titles_suffixes}    Append To List    ${user_filtered}    ${word}
+    END
+    ${clean_user_name}=    Evaluate    " ".join(${user_filtered})
+
+    # Compare
+    Should Be Equal As Strings    ${clean_user_name}    ${clean_fetched_name}
 
 
 Go To Customers Page
@@ -64,28 +87,39 @@ Log All Users From Table
     ${row_count}=    Get Element Count    //table//tbody//tr
     FOR    ${i}    IN RANGE    1    ${row_count + 1}
         Log To Console    ====== User ${i} ======\n
-        ${name}=          Get Text    (//table//tbody//tr)[${i}]/td[2]
+    
+        ${name}=    Get Text    (//table//tbody//tr)[${i}]/td[2]
+        # Remove extra initials or prefixes (e.g., single letters)
+        ${name_parts}=    Split String    ${name}
+        ${filtered_name}=    Evaluate    " ".join([part for part in ${name_parts} if len(part) > 1])
+
         ${last_seen}=     Get Text    (//table//tbody//tr)[${i}]/td[3]
         ${orders}=        Get Text    (//table//tbody//tr)[${i}]/td[4]
         ${total_spent}=   Get Text    (//table//tbody//tr)[${i}]/td[5]
         ${latest_purchase}=  Get Text    (//table//tbody//tr)[${i}]/td[6]
+        ${latest_purchase}=  Set Variable If    '${latest_purchase}' == ''    No Latest Purchase    ${latest_purchase}
+    
+
         ${has_newsletter}=  Get Element Attribute    (//table//tbody//tr)[${i}]/td[7]//*[name()='svg']    aria-label
-        # Get all span elements inside td[8], including spans inside all divs
+        # Get all span elements inside td[8]
         @{span_elements}=    Get WebElements    (//table//tbody//tr)[${i}]/td[8]//span
 
-        # Extract text from each span and store in a list
+        # Extract text from each span
         @{segments_list}=    Create List
         FOR    ${span}    IN    @{span_elements}
             ${text}=    Get Text    ${span}
             Append To List    ${segments_list}    ${text.strip()}
         END
-    
-        # Join all span texts with comma
-        ${segments_clean}=    Evaluate    ', '.join(${segments_list})
 
+        # Handle empty segments
+        IF    @{segments_list} == []
+            ${segments_clean}=    Set Variable    No Segment
+        ELSE
+            ${segments_clean}=    Evaluate    ', '.join(${segments_list})
+        END
 
-
-        Log To Console    Name: ${name}
+        # Log everything
+        Log To Console    Name: ${filtered_name}
         Log To Console    Last seen: ${last_seen}
         Log To Console    Orders: ${orders}
         Log To Console    Total spent: ${total_spent}
@@ -97,16 +131,32 @@ Log All Users From Table
 
 Fill Customer Form
     [Arguments]    ${user}
-    # Split name into first_name and last_name (last word as last name)
-    ${name_parts}    Split String    ${user["name"]}    separator= 
-    ${last_name}     Set Variable    ${name_parts}[-1]
-    ${first_name}    Evaluate    " ".join(${name_parts}[:-1])
+    # List of prefixes/titles and suffixes to remove
+    ${titles_suffixes}=    Create List    mr.    mrs.    ms.    dr.    jr.    sr.    iii    iv    v
+
+    # Split name and remove any titles/suffixes
+    ${name_parts}=    Split String    ${user["name"]}
+    @{clean_parts}=    Create List
+    FOR    ${word}    IN    @{name_parts}
+        ${lower}=    Convert To Lowercase    ${word}
+        Run Keyword Unless    '${lower}' in @{titles_suffixes}    Append To List    ${clean_parts}    ${word}
+    END
+
+    # Now last word is the last name, rest is first name
+    ${last_name}=    Set Variable    ${clean_parts}[-1]
+    ${first_name}=    Evaluate    " ".join(${clean_parts}[:-1])
+
+    # Fill form
     Clear And Input Text    ${customers_txt_firstname}    ${first_name}
     Clear And Input Text    ${customers_txt_lastname}     ${last_name}
+
     # Convert entire email to lowercase
-    ${email}    Evaluate    "${user['email'].lower()}"
+    ${email}=    Evaluate    "${user['email'].lower()}"
     Clear And Input Text    ${customers_txt_email}    ${email}
-    Set Date Field           ${customers_txt_birthday}    ${user["birthday"]}
+
+    # Set birthday
+    Set Date Field    ${customers_txt_birthday}    ${user["birthday"]}
+
     Clear And Input Text    ${customers_txt_address}      ${user["address"]["street"]} ${user["address"]["suite"]}
     Clear And Input Text    ${customers_txt_city}         ${user["address"]["city"]}
     Clear And Input Text    ${customers_txt_stateAbbr}    ${user["stateAbbr"]}
