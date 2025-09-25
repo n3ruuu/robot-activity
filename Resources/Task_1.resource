@@ -1,8 +1,5 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    String
-Variables   ../Variables/customer_variables.py
-Resource    ./App.resource
 Resource    ../Resources/Task_2.resource
 
 *** Keywords ***

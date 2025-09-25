@@ -1,8 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    String
-Variables    ../Variables/customer_variables.py
-Variables    ../Variables/variables.py
+Resource    ./App.resource
 
 *** Keywords ***
 Display Users With Spending
@@ -38,21 +37,21 @@ Calculate Total Spending
 
     # Format the total with $ and 2 decimal places
     ${formatted_total}    Evaluate    "$%.2f" % ${total}
-    Log To Console    \n===================================
+    Log To Console    \n
+    Log To Console    ===================================
     Log To Console    Total Customer Spending: ${formatted_total}
+    Log To Console    ===================================
     RETURN    ${total}    ${formatted_total}
 
 Validate Total Spending
     [Arguments]    ${total}    ${formatted_total}
     ${threshold}    Set Variable    3500.0
 
-    Log To Console    ===================================
-
-    IF    ${total} < ${threshold}
-        Log To Console    FAIL: Total spending (${formatted_total}) is below minimum threshold ($3,500)
-        Fail    Total spending (${formatted_total}) is below minimum threshold ($3,500)
-        Log To Console    =================================================================\n
+    IF    ${total} >= ${threshold}
+        Log To Console    PASS: Total spending (${formatted_total}) meets minimum threshold ($${threshold})
+        Log To Console    ==================================================================\n
     ELSE
-        Log To Console    PASS: Total spending (${formatted_total}) meets minimum threshold ($3,500)
-        Log To Console    =================================================================\n
+        Log To Console    FAIL: Total spending (${formatted_total}) is below minimum threshold ($${threshold})
+        Log To Console    ==================================================================\n
+        Fail    Total spending (${formatted_total}) is below minimum threshold ($${threshold})
     END

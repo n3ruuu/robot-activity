@@ -2,7 +2,6 @@
 Library    SeleniumLibrary
 Library    String
 Library    Collections
-Variables   ../Variables/customer_variables.py
 Resource    ./App.resource
 
 *** Keywords ***
