@@ -25,16 +25,18 @@ TEST-000002
         Create User    ${user}
         Verify User Is Added    ${user}
     END
+    Capture Page Screenshot
 
 TEST-000003
-    [Documentation]    Update rows 6-10 with last 5 users from API
+    [Documentation]    Update rows 6-10 with last 5 users from API and verify each one 
     ${users}    Get Last Five Users
     ${row_index}    Set Variable    6
     FOR    ${user}    IN    @{users}
         Update Customer Row    ${row_index}    ${user}
         Verify User Is Updated    ${row_index}    ${user}
-        ${row_index}=    Evaluate    ${row_index}+1
+        ${row_index}    Evaluate    ${row_index}+1
     END
+    Capture Page Screenshot
 
 TEST-000004
     # Login User
@@ -44,6 +46,6 @@ TEST-000004
 TEST-000005
     # Login User
     Go To Customers Page
-    ${total}    ${formatted_total}=    Calculate Total Spending
+    ${total}    ${formatted_total}    Calculate Total Spending
     Validate Total Spending    ${total}    ${formatted_total}
 
