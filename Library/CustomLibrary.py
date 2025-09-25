@@ -1,12 +1,11 @@
 import requests
 import random
 import string
-from Variables.variables import API_URL
 
 class CustomLibrary:
     def get_first_five_users(self):
         # Fetch all users from the API
-        response = requests.get(API_URL, verify=False)
+        response = requests.get("https://jsonplaceholder.typicode.com/users", verify=False)
         users = response.json()
         
         # Only take the first 5 users
@@ -23,7 +22,7 @@ class CustomLibrary:
 
     def get_last_five_users(self):
         # Fetch all users from the API
-        response = requests.get(API_URL, verify=False)
+        response = requests.get("https://jsonplaceholder.typicode.com/users", verify=False)
         users = response.json()
         
         # Take users 6-10 (index 5-9)

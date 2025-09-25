@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Library    String
 Variables    ../Variables/customer_variables.py
+Variables    ../Variables/variables.py
 
 *** Keywords ***
 Display Users With Spending

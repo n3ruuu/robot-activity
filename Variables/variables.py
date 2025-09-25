@@ -1,6 +1,5 @@
 # App variables
 URL = "https://marmelab.com/react-admin-demo/"
-API_URL = "https://jsonplaceholder.typicode.com/users"
 USERNAME = "demo"
 PASSWORD = "demo"
 

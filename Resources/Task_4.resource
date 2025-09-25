@@ -20,7 +20,7 @@ Log All Users From Table
         ${orders}=        Get Text    (${table_row})[${i}]/td[4]
         ${total_spent}=   Get Text    (${table_row})[${i}]/td[5]
         ${latest_purchase}=  Get Text    (${table_row})[${i}]/td[6]
-        ${latest_purchase}=  Set Variable If    '${latest_purchase}' == ''    No Latest Purchase    ${latest_purchase}
+        ${latest_purchase}=  Set Variable If    '${latest_purchase}' == ''    N/A    ${latest_purchase}
     
 
         ${has_newsletter}=  Get Element Attribute    (${table_row})[${i}]/td[7]//*[name()='svg']    aria-label
@@ -36,7 +36,7 @@ Log All Users From Table
 
         # Handle empty segments
         IF    @{segments_list} == []
-            ${segments_clean}=    Set Variable    No Segment
+            ${segments_clean}=    Set Variable    N/A
         ELSE
             ${segments_clean}=    Evaluate    ', '.join(${segments_list})
         END
