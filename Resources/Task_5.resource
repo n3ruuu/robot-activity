@@ -38,19 +38,21 @@ Calculate Total Spending
 
     # Format the total with $ and 2 decimal places
     ${formatted_total}    Evaluate    "$%.2f" % ${total}
-    Log To Console    \t===================================
-    Log To Console    \tTotal Customer Spending: ${formatted_total}
+    Log To Console    \n===================================
+    Log To Console    Total Customer Spending: ${formatted_total}
     RETURN    ${total}    ${formatted_total}
 
 Validate Total Spending
     [Arguments]    ${total}    ${formatted_total}
     ${threshold}    Set Variable    3500.0
 
-    Log To Console    \t===================================\n
+    Log To Console    ===================================
 
     IF    ${total} < ${threshold}
-        Log To Console    \tFAIL: Total spending (${formatted_total}) is below minimum threshold ($3,500)
+        Log To Console    FAIL: Total spending (${formatted_total}) is below minimum threshold ($3,500)
+        Fail    Total spending (${formatted_total}) is below minimum threshold ($3,500)
+        Log To Console    =================================================================\n
     ELSE
-        Log To Console    \tPASS: Total spending (${formatted_total}) meets minimum threshold ($3,500)
+        Log To Console    PASS: Total spending (${formatted_total}) meets minimum threshold ($3,500)
+        Log To Console    =================================================================\n
     END
-    Log To Console    \t=================================================================\n

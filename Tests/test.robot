@@ -34,6 +34,7 @@ TEST-000004
 
 TEST-000005
     [Documentation]    Navigate to the customers page, calculate the total spending of all customers, and validate that the computed value matches the displayed formatted total.
+    Login User
     Go To Customers Page
     ${total}    ${formatted_total}    Calculate Total Spending
     Validate Total Spending    ${total}    ${formatted_total}
