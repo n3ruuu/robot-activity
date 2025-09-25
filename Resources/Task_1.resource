@@ -3,8 +3,16 @@ Library    SeleniumLibrary
 Library    String
 Variables   ../Variables/customer_variables.py
 Resource    ./App.resource
+Resource    ../Resources/Task_2.resource
 
 *** Keywords ***
+Create And Verify Multiple Users
+    [Arguments]    ${users}
+    FOR    ${user}    IN    @{users}
+        Create User    ${user}
+        Verify User Is Added    ${user}
+    END
+
 Create User
     [Arguments]    ${user}
     Click Element    ${customers_btn_create}

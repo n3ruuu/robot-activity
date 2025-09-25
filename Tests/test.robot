@@ -18,12 +18,9 @@ TEST-000001-2
     Login User
     ${users}    Get First Five Users
     Go To Customers Page
-    FOR    ${user}    IN    @{users}
-        Create User    ${user}
-        Verify User Is Added    ${user}
-    END
+    Create And Verify Multiple Users    ${users}
     Capture Page Screenshot
-
+    
 TEST-000003
     [Documentation]    Fetch the last 5 users from the API, update rows 6–10 in the customer table with these users, and verify the updates are successful.
     ${users}    Get Last Five Users
