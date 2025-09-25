@@ -40,7 +40,7 @@ Refresh Current Page
 
 Clear And Input Text
     [Arguments]    ${locator}    ${text}
-    Press Keys    ${locator}    COMMAND+a     BACKSPACE
+    Press Keys    ${locator}    CTRL+a     BACKSPACE
     Input Text    ${locator}    ${text}
 
 Set Date Field
