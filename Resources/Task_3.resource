@@ -61,3 +61,12 @@ Clean Name
     END
     ${clean_name}    Evaluate    " ".join(${clean_parts})
     RETURN    ${clean_name}
+
+Update And Verify Multiple Users
+    [Arguments]    ${users}    ${start_row}
+    ${row_index}    Set Variable    ${start_row}
+    FOR    ${user}    IN    @{users}
+        Update Customer Row    ${row_index}    ${user}
+        Verify User Is Updated    ${row_index}    ${user}
+        ${row_index}    Evaluate    ${row_index}+1
+    END

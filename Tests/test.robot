@@ -27,12 +27,7 @@ TEST-000001-2
 TEST-000003
     [Documentation]    Fetch the last 5 users from the API, update rows 6–10 in the customer table with these users, and verify the updates are successful.
     ${users}    Get Last Five Users
-    ${row_index}    Set Variable    6
-    FOR    ${user}    IN    @{users}
-        Update Customer Row    ${row_index}    ${user}
-        Verify User Is Updated    ${row_index}    ${user}
-        ${row_index}    Evaluate    ${row_index}+1
-    END
+    Update And Verify Multiple Users    ${users}    6
     Capture Page Screenshot
 
 TEST-000004
