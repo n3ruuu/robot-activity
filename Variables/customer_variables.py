@@ -12,5 +12,4 @@ customers_txt_password = '//input[@name="password"]'
 customers_txt_confirm_password = '//input[@name="confirm_password"]'
 customers_btn_save = '//button[@aria-label="Save"]'
 
-# Table
-table_row = '//table//tbody//tr'
+

@@ -16,3 +16,6 @@ login_btn_submit   = '//button[@type="submit"]'
 # Refresh and loading
 btn_refresh = '//button[@aria-label="Refresh]'
 loading_icon = '//div[span[contains(@class,"MuiCircularProgress.root")]]'
+
+# Table
+table_row = '//table//tbody//tr'

@@ -45,4 +45,4 @@ Set Date Field
 
 Go To Customers Page
     Click Element    ${nav_btn_customers}
-    Wait Until Element Is Visible    //table//tbody//tr
+    Wait Until Element Is Visible    ${table_row}

@@ -5,17 +5,17 @@ Variables    ../Variables/customer_variables.py
 
 *** Keywords ***
 Display Users With Spending
-    ${row_count}=    Get Element Count    //table//tbody//tr
+    ${row_count}=    Get Element Count    ${table_row}
     ${counter}=      Set Variable    1
 
     Log To Console    \n
 
     FOR    ${i}    IN RANGE    1    ${row_count + 1}
-        ${name}=         Get Text    (//table//tbody//tr)[${i}]/td[2]
+        ${name}=         Get Text    (${table_row})[${i}]/td[2]
         ${name}=         Replace String    ${name}    \n    ${SPACE}
         ${name}=         Strip String      ${name}
 
-        ${total_spent}=  Get Text    (//table//tbody//tr)[${i}]/td[5]
+        ${total_spent}=  Get Text    (${table_row})[${i}]/td[5]
         ${amount}=       Evaluate    float("${total_spent}".replace('$','').replace(',','').strip())
 
         IF    ${amount} > 0
@@ -26,11 +26,11 @@ Display Users With Spending
     Log To Console    \n
 
 Calculate Total Spending
-    ${row_count}=    Get Element Count    //table//tbody//tr
+    ${row_count}=    Get Element Count    ${table_row}
     ${total}=        Set Variable    0.0
 
     FOR    ${i}    IN RANGE    1    ${row_count + 1}
-        ${total_spent}=  Get Text    (//table//tbody//tr)[${i}]/td[5]
+        ${total_spent}=  Get Text    (${table_row})[${i}]/td[5]
         ${amount}=       Evaluate    float("${total_spent}".replace('$','').replace(',','').strip())
         ${total}=        Evaluate    ${total} + ${amount}
     END

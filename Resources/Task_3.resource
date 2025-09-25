@@ -53,7 +53,7 @@ Fill Customer Form
 Verify User Is Updated
     [Arguments]    ${row_index}    ${user}
     Go To Customers Page
-    ${fetched_name}=    Get Text    (//table//tbody//tr)[${row_index}]//td[2]
+    ${fetched_name}=    Get Text    (${table_row})[${row_index}]//td[2]
 
     # Remove newlines
     ${fetched_name}=    Replace String    ${fetched_name}    \n    ${EMPTY}
